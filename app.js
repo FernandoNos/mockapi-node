@@ -7,6 +7,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+port = process.env.PORT || 3000;
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -18,3 +19,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 module.exports = app;
+
+app.listen(port);
+
+console.log('todo list RESTful API server started on: ' + port);
