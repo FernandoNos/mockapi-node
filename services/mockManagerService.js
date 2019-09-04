@@ -2,11 +2,19 @@ var mocks=[]
 
 function saveMock(m){
     mocks.push(m)
+    console.log(mocks)
     return m
 }
 
 function getMock(path){
-    return mocks.filter(p => p.path == path)[0].response
+    console.log(mocks)
+    if(mocks.length > 0){
+         result = mocks.filter(p => p.path == path)
+         if(result.length > 0)
+            return result[0].response
+        return null
+    }
+    return null
 }
 
 function getAllMocks(){
