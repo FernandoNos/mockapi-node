@@ -1,15 +1,16 @@
 var mocks=[]
 
 function saveMock(m){
+    console.log(m)
     mocks.push(m)
     console.log(mocks)
     return m
 }
 
-function getMock(path){
+function getMock(path, method){
     console.log(mocks)
     if(mocks.length > 0){
-         result = mocks.filter(p => p.path == path)
+         result = mocks.filter(p => p.path == path && p.method == method)
          if(result.length > 0)
             return result[0].response
         return null
